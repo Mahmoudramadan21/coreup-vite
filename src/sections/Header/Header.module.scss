@@ -1,0 +1,204 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+// Header styles
+.header {
+  position: sticky;
+  top: 0;
+  padding-top: vars.$spacing-medium;
+  padding-bottom: vars.$spacing-medium;
+  background-color: vars.$color-background-white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+
+  min-height: 88px;
+}
+
+// Header container
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  // padding: 0 20px;
+
+  @include mixins.respond-to("tablet") {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+// Header logo
+.header__logo {
+  text-decoration: none;
+
+  img {
+    width: 150px;
+    height: 40px;
+  }
+}
+
+// Hamburger button (mobile)
+.header__hamburger {
+  display: none;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  @include mixins.respond-to("tablet") {
+    display: block;
+    order: 2;
+  }
+
+  &:focus-visible {
+    outline: vars.$focus-outline-width solid vars.$focus-outline-color;
+    outline-offset: vars.$focus-outline-offset;
+  }
+}
+
+// Hamburger icon
+.header__hamburger-icon {
+  font-size: 1.5rem;
+  color: vars.$color-text-dark;
+}
+
+// Navigation menu
+.header__nav {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+  gap: 30px;
+
+  @include mixins.respond-to("tablet") {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    text-align: center;
+    background-color: vars.$color-background-white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    &--open {
+      max-height: 480px;
+    }
+  }
+}
+
+// Navigation list
+.header__nav-list {
+  display: flex;
+  gap: 30px;
+
+  @include mixins.respond-to("tablet") {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
+// Navigation item
+.header__nav-item {
+  list-style: none;
+
+  @include mixins.respond-to("tablet") {
+    width: 100%;
+  }
+}
+
+// Navigation link
+.header__nav-link {
+  font-size: 1rem;
+  font-weight: vars.$font-weight-medium;
+  color: vars.$color-text-dark;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: vars.$color-primary;
+  }
+
+  &--active {
+    color: vars.$color-primary;
+  }
+
+  @include mixins.respond-to("tablet") {
+    padding: 10px 0;
+    display: block;
+  }
+
+  &:focus-visible {
+    outline: vars.$focus-outline-width solid vars.$focus-outline-color;
+    outline-offset: vars.$focus-outline-offset;
+  }
+}
+
+// Actions container (Join now & Login)
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @include mixins.respond-to("tablet") {
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+
+    @include mixins.respond-to("tablet") {
+      padding: 20px;
+      width: 100%;
+      gap: 20px;
+    }
+  }
+}
+
+// Desktop actions
+.header__actions--desktop {
+  @include mixins.respond-to("tablet") {
+    display: none;
+  }
+}
+
+// Mobile actions (inside menu)
+.header__actions--mobile {
+  display: none;
+
+  @include mixins.respond-to("tablet") {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+  }
+}
+
+// Login link
+.header__login {
+  font-size: 1rem;
+  font-weight: vars.$font-weight-medium;
+  color: vars.$color-text-dark;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: vars.$color-primary;
+  }
+
+  @include mixins.respond-to("tablet") {
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  &:focus-visible {
+    outline: vars.$focus-outline-width solid vars.$focus-outline-color;
+    outline-offset: vars.$focus-outline-offset;
+  }
+}

@@ -1,0 +1,53 @@
+// Colors
+$color-primary: #0a65cc;
+$color-primary-hover: #408df0;
+$color-background-light: #f1f2f4;
+$color-background-white: #fff;
+$color-text: #767f8c;
+$color-text-dark: #18191c;
+$color-text-gray: #475569;
+$color-text-gray-muted: rgba($color-text-gray, 0.6);
+$color-star: #f5c518; // For star ratings
+$color-dot-active: #0a65cc; // Active pagination dot
+$color-dot-inactive: #d3d3d3; // Inactive pagination dot
+$footer-bg: #324054; // Dark blue background for footer
+$text-light-gray: #b0b8b9; // Light gray text for footer
+$title-gray: #94a3b866; // Gray titles for footer
+$white: #ffffff; // White color
+$blue: #0052cc; // Blue for buttons/links
+$blue-dark: #003bb5; // Darker blue for hover states
+
+// Typography
+$font-family-base: "Poppins", sans-serif;
+$font-size-base: 16px;
+$font-size-title: 2rem;
+$font-size-subtitle: 1.2rem;
+$font-size-body: 0.9rem;
+$font-weight-bold: 700;
+$font-weight-medium: 500;
+
+// Spacing
+$spacing-large: 40px;
+$spacing-medium: 20px;
+$spacing-small: 10px;
+$spacing-xsmall: 5px;
+
+// Sizes
+$icon-size: 60px;
+$border-radius-large: 30px;
+$border-radius-small: 4px;
+$avatar-size: 50px; // For testimonial avatars
+$dot-size: 10px; // For pagination dots
+
+// Padding
+$padding-base: 10px 16px;
+
+// Breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 992px;
+$breakpoint-desktop: 1200px;
+
+// Focus Styles
+$focus-outline-color: $color-text-gray;
+$focus-outline-width: 2px;
+$focus-outline-offset: 3px;

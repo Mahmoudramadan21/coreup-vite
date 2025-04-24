@@ -1,0 +1,50 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+// Testimonials section styles
+.testimonials {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+// Section header
+.testimonials__header {
+  text-align: center;
+  margin-bottom: vars.$spacing-large;
+}
+
+// Section title
+.testimonials__title {
+  font-size: vars.$font-size-title;
+  font-weight: vars.$font-weight-bold;
+  color: vars.$color-text-dark;
+  margin-bottom: vars.$spacing-medium;
+
+  @include mixins.respond-to("mobile") {
+    font-size: clamp(1.5rem, 5vw, vars.$font-size-title);
+  }
+}
+
+// Section description
+.testimonials__description {
+  font-size: vars.$font-size-body;
+  color: vars.$color-text-gray;
+  max-width: 600px;
+  margin: 0 auto;
+
+  @include mixins.respond-to("mobile") {
+    font-size: clamp(0.8rem, 2vw, vars.$font-size-body);
+  }
+}
+
+// Testimonials list container
+.testimonials__list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+
+  @include mixins.respond-to("tablet") {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,93 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+// Step container styles
+// Accessibility Recommendation: Ensure sufficient contrast for text elements (e.g., .step__title, .step__description)
+.step {
+  @include mixins.flex($direction: column, $justify: center, $align: center);
+  position: relative;
+  padding: 1.6rem;
+  text-align: center;
+}
+
+// Variant for document step
+.step--document {
+  background-color: vars.$color-background-white;
+  border-radius: 12px;
+}
+
+// Step icon container styles
+.step__icon {
+  @include mixins.flex($justify: center, $align: center);
+  width: vars.$icon-size;
+  height: vars.$icon-size;
+  margin-bottom: vars.$spacing-medium;
+  font-size: 1.5rem;
+  background-color: vars.$color-background-white;
+  border-radius: 50%;
+  color: vars.$color-background-white;
+}
+
+// Variant for document step icon
+.step__icon--document {
+  background-color: vars.$color-primary;
+}
+
+// Step title styles
+.step__title {
+  margin-bottom: vars.$spacing-small;
+  font-size: vars.$font-size-subtitle;
+  font-weight: vars.$font-weight-medium;
+  color: vars.$color-text-dark;
+}
+
+// Step description styles
+.step__description {
+  font-size: vars.$font-size-body;
+  line-height: 1.3;
+  color: vars.$color-text-gray;
+}
+
+// Step connector styles
+.step__connector {
+  position: absolute;
+  top: 0;
+  right: -38%;
+  z-index: 2;
+  transform: scale(0.9);
+}
+
+// Variant for reversed connector
+.step__connector--reversed {
+  top: 30%;
+}
+
+// Responsive adjustments for tablet
+@include mixins.respond-to("tablet") {
+  .step__connector {
+    right: -60%;
+    transform: scale(0.55);
+  }
+  .step__connector--reversed {
+    top: 25%;
+  }
+  .step__title {
+    font-size: 1.1rem;
+  }
+
+  // Step description styles
+  .step__description {
+    font-size: 0.8rem;
+  }
+}
+
+// Responsive adjustments for mobile
+@include mixins.respond-to("mobile") {
+  .step__connector {
+    display: none;
+  }
+
+  .step--document {
+    background-color: inherit;
+  }
+}

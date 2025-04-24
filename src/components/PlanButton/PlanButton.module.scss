@@ -1,0 +1,51 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+// Plan button container styles
+// Accessibility Recommendation: Add underline or other visual cue to distinguish links beyond color
+.planButton {
+  box-sizing: content-box;
+  @include mixins.flex(center, center);
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  height: 48px;
+  white-space: nowrap;
+  font-weight: vars.$font-weight-medium;
+  border: none;
+  border-radius: vars.$border-radius-small;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &--default {
+    background-color: #e6f0fa;
+    color: vars.$color-primary;
+
+    .planButton__arrow {
+      color: vars.$color-primary;
+    }
+
+    &:hover {
+      background-color: #d1e3f8;
+    }
+  }
+
+  &--primary {
+    background-color: vars.$color-primary;
+    color: vars.$color-background-white;
+
+    .planButton__arrow {
+      color: vars.$color-background-white;
+    }
+
+    &:hover {
+      background-color: vars.$color-primary-hover;
+    }
+  }
+
+  // Arrow icon styles
+  &__arrow {
+    margin-left: 10px;
+    font-size: 1.2rem;
+  }
+}

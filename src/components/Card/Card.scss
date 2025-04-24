@@ -1,0 +1,67 @@
+@use "../../styles/variables" as vars;
+
+// Card styles for content display
+// Accessibility Recommendation: Ensure sufficient contrast for text elements (e.g., .card-title, .card-subtitle)
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  gap: 1.4rem;
+  padding: clamp(2rem, 4vw, 3rem);
+  border-radius: 1rem;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+// Card title
+.card-title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: vars.$color-text;
+}
+
+// Card subtitle
+.card-subtitle {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: vars.$color-text;
+}
+
+// Card description
+.card-description {
+  max-width: 410px;
+  font-size: 0.94rem;
+  line-height: 1.4;
+  color: vars.$color-text-gray-muted;
+}
+
+// Card buttons container
+.card-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+// Startup variant
+.card--startup {
+  background: linear-gradient(
+    to right,
+    rgba(191, 219, 254, 0.3) 0%,
+    rgba(191, 219, 254, 0.3) 10%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+
+// Investor variant
+.card--investor {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(254, 243, 200, 0.3) 30%,
+    rgba(254, 243, 200, 0.3) 100%
+  );
+}

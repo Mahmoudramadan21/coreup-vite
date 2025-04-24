@@ -1,0 +1,74 @@
+@use "./variables" as vars;
+@use "./mixins";
+
+// Reset and Base Styles
+html {
+  // Behavior
+  scroll-behavior: smooth;
+  // Typography
+  font-size: vars.$font-size-base;
+}
+
+body {
+  // Typography
+  font-family: vars.$font-family-base;
+  // Box Model
+  margin: 0;
+  padding: 0;
+  // Visual
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+#root {
+  // Box Model
+  width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  // Box Model
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:focus-visible {
+  // Visual
+  outline: vars.$focus-outline-width solid vars.$focus-outline-color; // Fixed: Changed to $focus-outline-color
+  outline-offset: vars.$focus-outline-offset;
+  @include mixins.border-radius;
+}
+
+ul {
+  // Typography
+  list-style: none;
+}
+
+a {
+  // Typography
+  text-decoration: none;
+}
+
+// Container Styles
+.container {
+  // Box Model
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+
+  // Responsive widths
+  @include mixins.respond-to("mobile", "min") {
+    width: 750px;
+  }
+
+  @include mixins.respond-to("tablet", "min") {
+    width: 970px;
+  }
+
+  @include mixins.respond-to("desktop", "min") {
+    width: 1170px;
+  }
+}

@@ -1,0 +1,35 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+// How It Works section container styles
+// Accessibility Recommendation: Ensure sufficient contrast for text elements (e.g., .how-it-works__title)
+.how-it-works {
+  @include mixins.flex($direction: column, $justify: center, $align: center);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: vars.$color-background-light;
+}
+
+// Section title styles
+.how-it-works__title {
+  text-align: center;
+  margin-bottom: vars.$spacing-large;
+  font-size: vars.$font-size-title;
+  font-weight: vars.$font-weight-bold;
+  color: vars.$color-text-dark;
+}
+
+// Steps container styles
+.how-it-works__steps {
+  @include mixins.flex(
+    $direction: row,
+    $justify: space-between,
+    $align: center
+  );
+  width: 100%;
+  max-width: 1200px;
+
+  @include mixins.respond-to("mobile") {
+    @include mixins.flex($direction: column, $justify: center, $align: center);
+  }
+}

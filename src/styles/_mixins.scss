@@ -1,0 +1,41 @@
+@use "./variables" as vars;
+
+// Flexible flexbox mixin
+@mixin flex(
+  $direction: row,
+  $justify: center,
+  $align: center,
+  $gap: 0,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+  flex-wrap: $wrap;
+}
+
+// Media query mixin with custom breakpoints
+@mixin respond-to($size, $type: "max") {
+  $breakpoint: if(
+    $size == "mobile",
+    vars.$breakpoint-mobile,
+    if($size == "tablet", vars.$breakpoint-tablet, vars.$breakpoint-desktop)
+  );
+
+  @if $type == "max" {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  } @else if $type == "min" {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// Mixin for border-radius
+@mixin border-radius($radius: vars.$border-radius-small) {
+  border-radius: $radius;
+}

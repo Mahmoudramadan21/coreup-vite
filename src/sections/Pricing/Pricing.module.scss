@@ -1,0 +1,81 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+// Pricing section container styles
+.pricing {
+  position: relative;
+  @include mixins.flex($direction: column, $justify: center, $align: center);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: vars.$color-background-white;
+}
+
+// Pricing plans container styles
+.pricing__plans {
+  @include mixins.flex(
+    $direction: row,
+    $justify: center,
+    $align: center,
+    $gap: 24px
+  );
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  @include mixins.respond-to("tablet") {
+    gap: 40px;
+  }
+}
+
+// Blob background decoration
+.pricing__blob {
+  position: absolute;
+  top: -30px;
+  left: -90px;
+  width: 265px;
+  height: 182px;
+  z-index: 1;
+}
+
+// Spiral decoration (left side)
+.pricing__spiral-left {
+  position: absolute;
+  top: 50%;
+  left: 32%;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 150px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+// Spiral decoration (right side)
+.pricing__spiral-right {
+  position: absolute;
+  top: 50%;
+  right: 33%;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 150px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+// Responsive adjustments for mobile
+@include mixins.respond-to("mobile") {
+  .pricing__plans {
+    @include mixins.flex($direction: column, $gap: 50px);
+  }
+
+  .pricing__blob {
+    width: 150px;
+    height: 100px;
+    top: 10px;
+    left: 0;
+  }
+
+  .pricing__spiral-left,
+  .pricing__spiral-right {
+    width: 100px;
+    height: 100px;
+  }
+}

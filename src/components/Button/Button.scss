@@ -1,0 +1,62 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+// Default button styles
+// Accessibility Recommendation: Ensure sufficient contrast for text (e.g., color: #fff on background-color: $color-primary)
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: content-box;
+  width: fit-content;
+  height: 50px;
+  padding: 0 20px;
+  white-space: nowrap;
+  font-weight: bold;
+  color: vars.$color-text-dark;
+  background-color: transparent;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  // Accessibility: Focus styles for keyboard navigation
+  &:focus-visible {
+    outline: vars.$focus-outline-width solid vars.$focus-outline-color;
+    outline-offset: vars.$focus-outline-offset;
+  }
+
+  // Primary button variant
+  &--primary {
+    padding: 0 40px;
+    color: #fff;
+    background-color: vars.$color-primary;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: vars.$color-primary-hover;
+    }
+
+    // Medium size modifier
+    &-md {
+      padding: 0 50px;
+    }
+
+    // Large size modifier
+    &-lg {
+      padding: 0 80px;
+    }
+  }
+
+  // Disabled button state
+  &--disabled {
+    color: vars.$color-background-white;
+    background-color: vars.$color-text-gray;
+    opacity: 0.6;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: vars.$color-text-gray;
+    }
+  }
+}

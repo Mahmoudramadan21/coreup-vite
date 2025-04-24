@@ -1,0 +1,19 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+// Success section styles
+.success {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+// Cards container
+.success__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  @include mixins.respond-to("tablet") {
+    grid-template-columns: 1fr;
+  }
+}

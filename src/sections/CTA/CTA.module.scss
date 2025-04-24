@@ -1,0 +1,63 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+// CTA section styles
+// Accessibility Recommendation: Ensure sufficient contrast for text (e.g., color: #ffffffcc on background: linear-gradient(#1877f2, #023275))
+.cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  @include mixins.respond-to("mobile") {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// CTA content container
+.cta__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // max-width: 800px;
+  width: 100%;
+  height: 100%;
+  padding-top: vars.$spacing-large;
+  padding-bottom: vars.$spacing-large;
+  line-height: 1.4;
+  background: linear-gradient(#1877f2 0%, #023275 100%);
+  border-radius: 20px;
+
+  @include mixins.respond-to("mobile") {
+    border-radius: 0;
+  }
+}
+
+// CTA title
+.cta__title {
+  margin-bottom: vars.$spacing-medium;
+  font-size: vars.$font-size-title;
+  font-weight: vars.$font-weight-bold;
+  color: vars.$color-background-white;
+
+  @include mixins.respond-to("mobile") {
+    font-size: clamp(1.5rem, 5vw, vars.$font-size-title);
+  }
+}
+
+// CTA description
+.cta__description {
+  margin-bottom: vars.$spacing-large;
+  max-width: 520px;
+  font-size: vars.$font-size-body;
+  font-weight: vars.$font-weight-medium;
+  color: #ffffffcc;
+  opacity: 0.8;
+
+  @include mixins.respond-to("mobile") {
+    font-size: clamp(0.8rem, 2vw, vars.$font-size-body);
+  }
+}
