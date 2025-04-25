@@ -1,25 +1,27 @@
+/**
+ * Step component for displaying steps in a process (e.g., "How It Works").
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} props.icon - Step icon source URL
+ * @param {string} props.title - Step title
+ * @param {string} props.description - Step description
+ * @param {string} [props.connector] - Connector image source URL
+ * @returns {JSX.Element} Step element
+ * @example
+ * <Step icon={stepIcon} title="Step 1" description="Complete your profile" />
+ */
 import React from "react";
 import styles from "./Step.module.scss";
 
-/*
- * Step Component to display each step in "How It Works" section
- * Props:
- * - icon: Step icon (image source)
- * - title: Step title
- * - description: Step description
- * - connector: Connector image between steps (optional)
- * Performance Note: Added width and height to images to prevent layout shifts
- * Accessibility Note: Added aria-label and aria-hidden for better screen reader support
- */
 const Step = ({ icon, title, description, connector }) => {
   return (
-    <div
+    <article
       className={`${styles.step} ${
         title === "Complete your profile" ? styles["step--document"] : ""
       }`}
       aria-label={`Step: ${title}`}
+      role="region"
     >
-      {/* Step Icon */}
       <div
         className={`${styles["step__icon"]} ${
           title === "Complete your profile"
@@ -35,15 +37,12 @@ const Step = ({ icon, title, description, connector }) => {
           height="32"
         />
       </div>
-      {/* Step Title */}
       <h3 className={styles["step__title"]}>{title}</h3>
-      {/* Step Description */}
       <p className={styles["step__description"]}>{description}</p>
-      {/* Step Connector */}
       {connector && (
         <img
           src={connector}
-          alt="Connector line between steps"
+          alt=""
           className={`${styles["step__connector"]} ${
             title === "Complete your profile"
               ? styles["step__connector--reversed"]
@@ -53,7 +52,7 @@ const Step = ({ icon, title, description, connector }) => {
           aria-hidden="true"
         />
       )}
-    </div>
+    </article>
   );
 };
 

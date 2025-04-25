@@ -1,19 +1,24 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// Plan card container styles
-// Accessibility Recommendation: Ensure sufficient contrast for text elements (e.g., .plan__title, .plan__description)
 .plan {
+  // Layout
   position: relative;
   display: flex;
   flex-direction: column;
+
+  // Box Model
   gap: 1.4rem;
   width: 100%;
   min-height: 520px;
   max-width: 350px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+
+  // Typography
   text-align: left;
+
+  // Visual
   background-color: vars.$color-background-white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   z-index: 2;
@@ -23,45 +28,55 @@
   }
 }
 
-// Plan header section styles
 .plan__header {
+  // Box Model
   padding: 1.8rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-// Recommended tag styles
 .plan__recommended-tag {
+  // Layout
   position: absolute;
   top: -15px;
   left: 50%;
   transform: translateX(-50%);
+
+  // Box Model
   padding: 7px 15px;
+
+  // Typography
   font-size: 0.9rem;
   font-weight: vars.$font-weight-medium;
   text-align: center;
+
+  // Visual
   color: vars.$color-background-white;
   background-color: vars.$color-primary;
   border-radius: vars.$border-radius-small;
   z-index: 3;
 }
 
-// Plan title styles
 .plan__title {
+  // Typography
   font-weight: vars.$font-weight-medium;
   color: vars.$color-text-dark;
 }
 
-// Plan description styles
 .plan__description {
+  // Box Model
   margin: 0.8rem 0;
+
+  // Typography
   font-size: 0.85rem;
   font-weight: normal;
   color: vars.$color-text;
 }
 
-// Plan price container styles
 .plan__price {
+  // Layout
   position: relative;
+
+  // Typography
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: vars.$font-weight-medium;
 
@@ -77,37 +92,45 @@
   }
 }
 
-// Plan footer section styles
 .plan__footer {
+  // Box Model
   padding: 0.7rem 1.8rem 1rem;
 }
 
-// Plan features list styles
 .plan__features {
+  // Layout
   display: flex;
   flex-direction: column;
+
+  // Box Model
   gap: 1rem;
   margin-bottom: 2rem;
 }
 
-// Individual feature item styles
 .plan__feature {
+  // Layout
   display: flex;
   align-items: center;
+
+  // Box Model
   gap: 8px;
+
+  // Typography
   font-size: 0.94rem;
   color: vars.$color-text-gray;
 }
 
-// Check icon styles for features
 .plan__check {
+  // Box Model
   width: 16px;
   height: 16px;
+
+  // Visual
   color: vars.$color-primary;
 }
 
-// Plan button container styles
 .plan__button {
+  // Layout
   display: flex;
   justify-content: flex-start;
 }

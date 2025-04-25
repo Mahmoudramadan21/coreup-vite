@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+/**
+ * Reusable Input component with optional icon and password visibility toggle.
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} [props.type='text'] - Input type (e.g., text, password)
+ * @param {string} [props.placeholder] - Placeholder text
+ * @param {string} [props.icon] - Icon source URL
+ * @param {string} props.value - Input value
+ * @param {Function} props.onChange - Change event handler
+ * @param {string} [props.ariaLabel] - Accessibility label
+ * @returns {JSX.Element} Input element
+ * @example
+ * <Input type="password" value={value} onChange={handleChange} ariaLabel="Password" />
+ */
+import React, { useState, useCallback } from "react";
 import styles from "./Input.module.scss";
 import eyeIcon from "../../assets/icons/eye.svg";
 
-/*
- * Reusable Input component
- * Performance Note: Wrapped with React.memo to prevent unnecessary re-renders
- * Security Note: Use type="password" for password fields to enhance security
- * Accessibility Note: Added aria-label and role for better screen reader support
- */
 const Input = ({
   type = "text",
   placeholder,
@@ -18,9 +26,9 @@ const Input = ({
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+  const togglePasswordVisibility = useCallback(() => {
+    setShowPassword((prev) => !prev);
+  }, []);
 
   const inputType =
     type === "password" ? (showPassword ? "text" : "password") : type;
@@ -33,6 +41,7 @@ const Input = ({
           alt=""
           className={styles.inputIcon}
           aria-hidden="true"
+          loading="lazy"
         />
       )}
       <input
@@ -50,7 +59,7 @@ const Input = ({
           className={styles.eyeButton}
           aria-label={showPassword ? "Hide password" : "Show password"}
         >
-          <img src={eyeIcon} alt="" aria-hidden="true" />
+          <img src={eyeIcon} alt="" aria-hidden="true" loading="lazy" />
         </button>
       )}
     </div>
