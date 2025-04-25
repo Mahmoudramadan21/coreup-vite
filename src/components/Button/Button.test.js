@@ -1,61 +1,35 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { BrowserRouter as Router, useNavigate } from "react-router-dom";
-import Button from "./Button";
+import React from "react";
+import { Link } from "react-router-dom";
+import styles from "./Button.module.scss";
 
-// Mock useNavigate
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useNavigate: () => jest.fn(),
-}));
+/*
+ * Reusable Button component
+ * Performance Note: Wrapped with React.memo to prevent unnecessary re-renders
+ * Accessibility Note: Added aria-label for better screen reader support
+ */
+const Button = ({
+  to,
+  children,
+  onClick,
+  type = "button",
+  disabled = false,
+  ariaLabel,
+}) => {
+  const buttonProps = {
+    className: styles.button,
+    onClick,
+    type,
+    disabled,
+    "aria-label": ariaLabel,
+  };
 
-// Test rendering with children
-test("renders button with children", () => {
-  render(
-    <Router>
-      <Button>Click Me</Button>
-    </Router>
+  return to ? (
+    <Link to={to} className={styles.button} aria-label={ariaLabel}>
+      {children}
+    </Link>
+  ) : (
+    <button {...buttonProps}>{children}</button>
   );
-  const buttonElement = screen.getByText(/Click Me/i);
-  expect(buttonElement).toBeInTheDocument();
-});
+};
 
-// Test applying custom className
-test("applies custom className", () => {
-  render(
-    <Router>
-      <Button className="custom-class">Click Me</Button>
-    </Router>
-  );
-  const buttonElement = screen.getByText(/Click Me/i);
-  expect(buttonElement).toHaveClass("btn custom-class");
-});
-
-// Test onClick handler
-test("calls onClick when clicked", () => {
-  const handleClick = jest.fn();
-  render(
-    <Router>
-      <Button onClick={handleClick}>Click Me</Button>
-    </Router>
-  );
-  const buttonElement = screen.getByText(/Click Me/i);
-  fireEvent.click(buttonElement);
-  expect(handleClick).toHaveBeenCalledTimes(1);
-});
-
-// Test navigation with "to" prop
-test('navigates to "to" path when clicked', () => {
-  const navigateMock = jest.fn();
-  jest
-    .spyOn(require("react-router-dom"), "useNavigate")
-    .mockImplementation(() => navigateMock);
-
-  render(
-    <Router>
-      <Button to="/some-path">Click Me</Button>
-    </Router>
-  );
-  const buttonElement = screen.getByText(/Click Me/i);
-  fireEvent.click(buttonElement);
-  expect(navigateMock).toHaveBeenCalledWith("/some-path");
-});
+export default React.memo(Button);

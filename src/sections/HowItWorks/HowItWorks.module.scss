@@ -1,25 +1,25 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// How It Works section container styles
-// Accessibility Recommendation: Ensure sufficient contrast for text elements (e.g., .how-it-works__title)
 .how-it-works {
   @include mixins.flex($direction: column, $justify: center, $align: center);
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: vars.$spacing-large;
+  padding-bottom: vars.$spacing-large;
   background-color: vars.$color-background-light;
 }
 
-// Section title styles
 .how-it-works__title {
   text-align: center;
   margin-bottom: vars.$spacing-large;
   font-size: vars.$font-size-title;
   font-weight: vars.$font-weight-bold;
   color: vars.$color-text-dark;
+
+  @include mixins.respond-to("mobile") {
+    font-size: clamp(1.5rem, 5vw, vars.$font-size-title);
+  }
 }
 
-// Steps container styles
 .how-it-works__steps {
   @include mixins.flex(
     $direction: row,
@@ -31,5 +31,36 @@
 
   @include mixins.respond-to("mobile") {
     @include mixins.flex($direction: column, $justify: center, $align: center);
+    gap: vars.$spacing-medium;
+  }
+
+  .step {
+    flex: 1;
+    max-width: 250px;
+
+    @include mixins.respond-to("tablet") {
+      max-width: 200px;
+    }
+
+    @include mixins.respond-to("mobile") {
+      max-width: 100%;
+    }
+  }
+
+  .step__connector {
+    right: -30%;
+
+    @include mixins.respond-to("tablet") {
+      right: -50%;
+      transform: scale(0.6);
+    }
+  }
+
+  .step__connector--reversed {
+    top: 25%;
+
+    @include mixins.respond-to("tablet") {
+      top: 20%;
+    }
   }
 }

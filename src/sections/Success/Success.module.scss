@@ -1,19 +1,37 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// Success section styles
 .success {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: vars.$spacing-large;
+  padding-bottom: vars.$spacing-large;
 }
 
-// Cards container
 .success__cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: vars.$spacing-large;
 
   @include mixins.respond-to("tablet") {
     grid-template-columns: 1fr;
+  }
+
+  .card--startup {
+    background: linear-gradient(
+      to right,
+      rgba(191, 219, 254, 0.5) 0%,
+      rgba(191, 219, 254, 0.3) 10%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+    border: 1px solid rgba(191, 219, 254, 0.5);
+  }
+
+  .card--investor {
+    background: linear-gradient(
+      to right,
+      rgba(254, 243, 200, 0.5) 0%,
+      rgba(254, 243, 200, 0.3) 30%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+    border: 1px solid rgba(254, 243, 200, 0.5);
   }
 }

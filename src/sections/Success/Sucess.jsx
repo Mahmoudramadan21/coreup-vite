@@ -2,9 +2,6 @@ import React from "react";
 import styles from "./Success.module.scss";
 import Card from "../../components/Card/Card";
 
-/*
- * Success Section to display success metrics or highlights
- */
 const Success = () => {
   const cards = [
     {
@@ -29,7 +26,6 @@ const Success = () => {
       className={`${styles.success} container`}
       aria-label="Success Metrics"
     >
-      {/* Cards List */}
       <div className={styles.success__cards}>
         {cards.map((card, index) => (
           <Card

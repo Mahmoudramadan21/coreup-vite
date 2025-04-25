@@ -2,17 +2,6 @@ import React from "react";
 import "./Button.scss";
 import { useNavigate } from "react-router-dom";
 
-/*
- * Button component for navigation or triggering actions
- * Props:
- * - children: Button content (text or elements)
- * - className: Additional CSS classes
- * - onClick: Optional click handler
- * - to: Optional navigation path (via react-router-dom)
- * - ariaLabel: Accessibility label for screen readers
- * - disabled: Optional prop to disable the button
- * Accessibility Note: Ensure sufficient contrast for button text (handled in Button.scss)
- */
 const Button = ({
   children,
   className = "",
@@ -23,7 +12,6 @@ const Button = ({
 }) => {
   const navigate = useNavigate();
 
-  // Handle click: Either navigate or call onClick handler
   const handleClick = () => {
     if (disabled) return;
     if (to) {

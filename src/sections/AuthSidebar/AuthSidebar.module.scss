@@ -1,0 +1,39 @@
+.sidebar {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  left: -2px;
+
+  /* Box Model */
+  width: 100%;
+  max-width: 400px;
+  // height: 100vh;
+
+  /* Visual */
+  // background: linear-gradient(180deg, #1a3c5e 0%, #2a6ea6 100%);
+
+  /* Desktop Layout */
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.image {
+  /* Layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    display: none;
+  }
+}

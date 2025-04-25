@@ -1,16 +1,14 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// Pricing section container styles
 .pricing {
   position: relative;
   @include mixins.flex($direction: column, $justify: center, $align: center);
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: vars.$spacing-large;
+  padding-bottom: vars.$spacing-large;
   background-color: vars.$color-background-white;
 }
 
-// Pricing plans container styles
 .pricing__plans {
   @include mixins.flex(
     $direction: row,
@@ -21,61 +19,58 @@
   flex-wrap: wrap;
   width: 100%;
   max-width: 1200px;
+
   @include mixins.respond-to("tablet") {
     gap: 40px;
   }
 }
 
-// Blob background decoration
 .pricing__blob {
   position: absolute;
-  top: -30px;
-  left: -90px;
-  width: 265px;
-  height: 182px;
-  z-index: 1;
-}
-
-// Spiral decoration (left side)
-.pricing__spiral-left {
-  position: absolute;
-  top: 50%;
-  left: 32%;
-  transform: translateY(-50%);
-  width: 150px;
+  top: -20px;
+  left: -60px;
+  width: 200px;
   height: 150px;
-  opacity: 0.3;
   z-index: 1;
-}
 
-// Spiral decoration (right side)
-.pricing__spiral-right {
-  position: absolute;
-  top: 50%;
-  right: 33%;
-  transform: translateY(-50%);
-  width: 150px;
-  height: 150px;
-  opacity: 0.3;
-  z-index: 1;
-}
-
-// Responsive adjustments for mobile
-@include mixins.respond-to("mobile") {
-  .pricing__plans {
-    @include mixins.flex($direction: column, $gap: 50px);
-  }
-
-  .pricing__blob {
-    width: 150px;
-    height: 100px;
-    top: 10px;
+  @include mixins.respond-to("mobile") {
+    width: 120px;
+    height: 90px;
+    top: 0;
     left: 0;
   }
+}
 
-  .pricing__spiral-left,
-  .pricing__spiral-right {
-    width: 100px;
-    height: 100px;
+.pricing__spiral-left {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 120px;
+  opacity: 0.2;
+  z-index: 1;
+
+  @include mixins.respond-to("mobile") {
+    width: 80px;
+    height: 80px;
+    left: 10%;
+  }
+}
+
+.pricing__spiral-right {
+  position: absolute;
+  top: 60%;
+  right: 20%;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 120px;
+  opacity: 0.2;
+  z-index: 1;
+
+  @include mixins.respond-to("mobile") {
+    width: 80px;
+    height: 80px;
+    right: 10%;
   }
 }

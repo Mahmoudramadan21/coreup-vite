@@ -1,14 +1,13 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// Hero section styles
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  gap: 2rem;
+  padding-top: vars.$spacing-large;
+  padding-bottom: vars.$spacing-large;
+  gap: vars.$spacing-large;
 
   @include mixins.respond-to("tablet") {
     grid-template-columns: 1fr;
@@ -16,18 +15,16 @@
   }
 }
 
-// Hero content
 .hero__content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: vars.$spacing-medium;
 
   @include mixins.respond-to("tablet") {
     align-items: center;
   }
 }
 
-// Hero title
 .hero__title {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: vars.$font-weight-bold;
@@ -38,25 +35,23 @@
   }
 }
 
-// Hero subtitle
 .hero__subtitle {
-  font-size: 1rem;
+  font-size: vars.$font-size-body;
   line-height: 1.5;
   color: vars.$color-text-gray;
   max-width: 500px;
 
   @include mixins.respond-to("tablet") {
     max-width: 100%;
+    font-size: clamp(0.8rem, 2vw, vars.$font-size-body);
   }
 }
 
-// Hero graphic
 .hero__graphic {
   position: relative;
   aspect-ratio: 540/400;
   display: flex;
   justify-content: center;
-  // background-color: #f5f5f5;
 
   img {
     position: absolute;
@@ -67,7 +62,7 @@
 
   @include mixins.respond-to("tablet") {
     img {
-      margin-top: 2rem;
+      margin-top: vars.$spacing-medium;
       width: 60%;
     }
   }

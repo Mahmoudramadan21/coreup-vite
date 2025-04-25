@@ -2,7 +2,6 @@
 @use "../../styles/mixins";
 
 // Default button styles
-// Accessibility Recommendation: Ensure sufficient contrast for text (e.g., color: #fff on background-color: $color-primary)
 .btn {
   display: flex;
   justify-content: center;
@@ -13,12 +12,27 @@
   padding: 0 20px;
   white-space: nowrap;
   font-weight: bold;
-  color: vars.$color-text-dark;
-  background-color: transparent;
+  color: #fff;
+  background-color: vars.$blue;
   border: none;
   border-radius: 2rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: vars.$blue-dark;
+  }
+
+  // Medium size modifier
+  &-md {
+    padding: 0 50px;
+  }
+
+  // Large size modifier
+  &-lg {
+    width: 100%;
+    padding: 0;
+  }
 
   // Accessibility: Focus styles for keyboard navigation
   &:focus-visible {
@@ -32,31 +46,17 @@
     color: #fff;
     background-color: vars.$color-primary;
     transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: vars.$color-primary-hover;
-    }
-
-    // Medium size modifier
-    &-md {
-      padding: 0 50px;
-    }
-
-    // Large size modifier
-    &-lg {
-      padding: 0 80px;
-    }
   }
 
   // Disabled button state
   &--disabled {
-    color: vars.$color-background-white;
-    background-color: vars.$color-text-gray;
-    opacity: 0.6;
-    cursor: not-allowed;
+    color: vars.$color-background-white !important;
+    background-color: vars.$color-text-gray !important;
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
 
     &:hover {
-      background-color: vars.$color-text-gray;
+      background-color: vars.$color-text-gray !important;
     }
   }
 }
