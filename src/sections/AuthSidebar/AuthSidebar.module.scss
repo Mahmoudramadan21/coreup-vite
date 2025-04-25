@@ -10,15 +10,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  // max-width: 400px;
-  // min-height: 100vh;
-  // padding: vars.$spacing-large;
-
-  // Media Queries
-  @include mixins.respond-to("tablet") {
-    display: none;
-  }
 }
 
 .authSidebar__image {
@@ -38,5 +29,9 @@
     // Box Model
     width: auto;
     height: 100vh;
+  }
+  // Media Queries
+  @include mixins.respond-to("tablet") {
+    display: none;
   }
 }

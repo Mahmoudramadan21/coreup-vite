@@ -10,11 +10,18 @@
 
   // Box Model
   width: 100%;
-  max-width: 400px;
+  // max-width: 400px;
 
   // Responsive adjustments
   @media (min-width: 992px) {
-    margin-left: 28vw;
+    padding-left: 30vw;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+
+  &__container {
+    max-width: 400px;
   }
 
   // Title
