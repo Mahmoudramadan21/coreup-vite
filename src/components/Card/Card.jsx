@@ -1,47 +1,40 @@
-/**
- * Card component for displaying content with action buttons.
- * @component
- * @param {Object} props - Component props
- * @param {string} [props.className=''] - Additional CSS classes
- * @param {string} props.title - Card title
- * @param {string} props.subtitle - Card subtitle
- * @param {string} props.description - Card description
- * @param {string} [props.role] - ARIA role for accessibility
- * @returns {JSX.Element} Card element
- * @example
- * <Card title="Startup" subtitle="For new ventures" description="Join our platform..." />
- */
 import React from "react";
 import "./Card.scss";
 import Button from "../Button/Button";
 
+// Card component for displaying content with actions
+// Props:
+// - className: Custom CSS classes for styling
+// - title: Card title text
+// - subtitle: Card subtitle text
+// - description: Card description text
+// - role: ARIA role for accessibility
 const Card = ({ className = "", title, subtitle, description, role }) => {
   return (
     <article
       className={`card ${className}`}
-      role={role || "article"}
+      role={role}
       aria-label={`Card for ${title}`}
     >
-      {/* Card Header */}
-      <header className="card-header">
-        <h2 className="card-title">{title}</h2>
-        <h3 className="card-subtitle">{subtitle}</h3>
-      </header>
-      {/* Card Content */}
-      <p className="card-description">{description}</p>
-      {/* Card Footer */}
-      <footer className="card-buttons">
+      {/* Card Title */}
+      <h2 className="card__title">{title}</h2>
+      {/* Card Subtitle */}
+      <h3 className="card__subtitle">{subtitle}</h3>
+      {/* Card Description */}
+      <p className="card__description">{description}</p>
+      {/* Card Buttons */}
+      <div className="card__buttons">
         <Button
-          className="btn--primary btn--primary-md"
+          className="button--primary button--primary-md"
           to="register"
           aria-label="Join now"
         >
           Join now
         </Button>
-        <Button to="#" aria-label={`Read more about ${title}`}>
+        <Button to="#" aria-label="Read more about this card">
           Read more
         </Button>
-      </footer>
+      </div>
     </article>
   );
 };

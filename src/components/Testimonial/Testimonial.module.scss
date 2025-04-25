@@ -1,6 +1,7 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
+// Testimonial component styles
 .testimonial {
   // Layout
   display: flex;
@@ -10,86 +11,86 @@
   padding: 1.6rem;
   border-radius: 12px;
 
-  // Visual
-  background-color: vars.$color-background-white;
-
   &--featured {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    // Visual
+    background-color: vars.$color-background-white;
   }
-}
 
-.testimonial__stars {
-  // Layout
-  display: flex;
-  gap: 4px;
+  // Stars container
+  &__stars {
+    // Layout
+    display: flex;
+    gap: 4px;
+  }
 
-  // Box Model
-  margin-bottom: 1rem;
-}
+  // Star icon
+  &__star {
+    // Box Model
+    width: 20px;
+    height: 20px;
+  }
 
-.testimonial__star {
-  // Box Model
-  width: 20px;
-  height: 20px;
-}
+  // Testimonial text
+  &__text {
+    // Box Model
+    margin: 1rem 0;
 
-.testimonial__text {
-  // Typography
-  font-size: 0.94rem;
-  line-height: 1.5;
-  color: vars.$color-text-gray;
+    // Typography
+    font-size: 1rem;
+    line-height: 1.5;
+    color: vars.$color-text-gray;
+  }
 
-  // Box Model
-  margin-bottom: 1.5rem;
-}
+  // Testimonial footer
+  &__footer {
+    // Layout
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.testimonial__footer {
-  // Layout
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  // User info
+  &__user {
+    // Layout
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 
-.testimonial__user {
-  // Layout
-  display: flex;
-  align-items: center;
+  // User avatar
+  &__avatar {
+    // Box Model
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
 
-  // Box Model
-  gap: 12px;
-}
+  // User info container
+  &__user-info {
+    // Layout
+    display: flex;
+    flex-direction: column;
+  }
 
-.testimonial__avatar {
-  // Box Model
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
+  // User name
+  &__name {
+    // Typography
+    font-size: 1.1rem;
+    font-weight: vars.$font-weight-medium;
+    color: vars.$color-text-dark;
+  }
 
-.testimonial__user-info {
-  // Layout
-  display: flex;
-  flex-direction: column;
-}
+  // User role
+  &__role {
+    // Typography
+    font-size: 0.9rem;
+    color: vars.$color-text-gray;
+  }
 
-.testimonial__name {
-  // Typography
-  font-size: 1rem;
-  font-weight: vars.$font-weight-medium;
-  color: vars.$color-text-dark;
-}
-
-.testimonial__role {
-  // Typography
-  font-size: 0.85rem;
-  color: vars.$color-text-gray;
-}
-
-.testimonial__quote {
-  // Box Model
-  width: 30px;
-  height: 30px;
-
-  // Visual
-  opacity: 0.3;
+  // Quote icon
+  &__quote {
+    // Box Model
+    width: 30px;
+    height: 30px;
+  }
 }

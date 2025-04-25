@@ -8,12 +8,7 @@ import userIcon from "../../assets/icons/user-gray-icon.svg";
 import emailIcon from "../../assets/icons/email.svg";
 import lockIcon from "../../assets/icons/lock.svg";
 
-/*
- * Signup Page
- * Performance Note: Wrapped with React.memo to prevent unnecessary re-renders
- * Security Note: Avoid inline scripts to mitigate XSS attacks
- * Accessibility Note: Added semantic HTML and aria-labels
- */
+// Signup page for user registration
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -30,11 +25,14 @@ const Signup = () => {
   return (
     <AuthLayout showSidebar={false}>
       <div className={styles.signup}>
-        <h1 className={styles.title}>Create an account</h1>
-        <p className={styles.subtitle}>
+        {/* Page Title */}
+        <h1 className={styles.signup__title}>Create an account</h1>
+        {/* Page Subtitle */}
+        <p className={styles.signup__subtitle}>
           Let’s get you all set up so you can access your personal account.
         </p>
-        <form onSubmit={handleSubmit} className={styles.form}>
+        {/* Signup Form */}
+        <form onSubmit={handleSubmit} className={styles.signup__form}>
           <Input
             type="text"
             placeholder="First Name"
@@ -75,9 +73,10 @@ const Signup = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
             ariaLabel="Confirm password"
           />
-          <div className={styles.role}>
+          {/* Role Selection */}
+          <div className={styles.signup__role}>
             <p>Who are you?</p>
-            <div className={styles.roleOptions}>
+            <div className={styles.signup__roleOptions}>
               <label>
                 <input
                   type="radio"
@@ -113,28 +112,29 @@ const Signup = () => {
               </label>
             </div>
           </div>
-          <div className={styles.terms}>
+          {/* Terms Agreement */}
+          <div className={styles.signup__terms}>
             <input
               type="checkbox"
               name="terms"
-              id={styles.terms}
+              id={styles.signup__termsCheckbox}
               required
               aria-label="Agree to terms of use and privacy policy"
             />
-            <label for="terms" className={styles.termsLabel}>
+            <label for="terms" className={styles.signup__termsLabel}>
               By creating an account, I agree to our{" "}
-              <Link to="/terms" className={styles.termsLink}>
+              <Link to="/terms" className={styles.signup__termsLink}>
                 Terms of use
               </Link>{" "}
               and{" "}
-              <Link to="/privacy" className={styles.termsLink}>
+              <Link to="/privacy" className={styles.signup__termsLink}>
                 Privacy Policy
               </Link>
             </label>
           </div>
           <Button
             type="submit"
-            className="btn btn-lg"
+            className="button button--lg"
             ariaLabel="Create account"
           >
             Create account

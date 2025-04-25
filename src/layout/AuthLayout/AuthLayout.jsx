@@ -4,24 +4,29 @@ import styles from "./AuthLayout.module.scss";
 import AuthSidebar from "../../sections/AuthSidebar/AuthSidebar";
 import logo from "../../assets/logo-white.svg";
 
-/*
- * AuthLayout component for authentication pages
- * Performance Note: Wrapped with React.memo to prevent unnecessary re-renders
- * Accessibility Note: Added semantic HTML and aria-label for navigation
- */
+// AuthLayout component for authentication pages
+// Props:
+// - children: Content to render in the main section
+// - showSidebar: Toggles sidebar visibility (default: true)
 const AuthLayout = ({ children, showSidebar = true }) => {
   return (
-    <div className={styles.layout}>
+    <div className={styles.authLayout}>
       {showSidebar && <AuthSidebar />}
+      {/* Header Section */}
       <header
-        className={`${styles.header} ${
-          children.props.className?.includes("login") ? styles.loginHeader : ""
+        className={`${styles.authLayout__header} ${
+          children.props.className?.includes("login")
+            ? styles["authLayout__header--login"]
+            : ""
         }`}
       >
+        {/* Logo Link */}
         <Link
           to="/login"
-          className={`${styles.logo} ${
-            children.props.className?.includes("login") ? styles.loginLogo : ""
+          className={`${styles.authLayout__logo} ${
+            children.props.className?.includes("login")
+              ? styles["authLayout__logo--login"]
+              : ""
           }`}
           aria-label="Go to CoreUp homepage"
         >
@@ -33,13 +38,14 @@ const AuthLayout = ({ children, showSidebar = true }) => {
             height="24"
           />
         </Link>
+        {/* Navigation Link */}
         <Link
           to={`${
             children.props.className?.includes("login") ? "/signup" : "/login"
           }`}
-          className={`${styles.loginLink} ${
+          className={`${styles.authLayout__link} ${
             children.props.className?.includes("login")
-              ? styles.loginLinkActive
+              ? styles["authLayout__link--active"]
               : ""
           }`}
           aria-label={`Go to ${
@@ -49,10 +55,16 @@ const AuthLayout = ({ children, showSidebar = true }) => {
           {children.props.className?.includes("login") ? "regitser" : "login"}
         </Link>
       </header>
-      <main className={styles.main}>{children}</main>
-      <footer className={styles.footer}>
+      {/* Main Content */}
+      <main className={styles.authLayout__main}>{children}</main>
+      {/* Footer Section */}
+      <footer className={styles.authLayout__footer}>
         <p>Copyright © 2024, CoreUp Inc. All Rights Reserved</p>
-        <Link to="/help" className={styles.helpLink} aria-label="Need help?">
+        <Link
+          to="/help"
+          className={styles.authLayout__helpLink}
+          aria-label="Need help?"
+        >
           Need help?
         </Link>
       </footer>

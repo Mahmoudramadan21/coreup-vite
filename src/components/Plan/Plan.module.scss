@@ -1,6 +1,7 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
+// Plan component styles
 .plan {
   // Layout
   position: relative;
@@ -26,111 +27,125 @@
   &--recommended {
     transform: scale(1.05);
   }
-}
 
-.plan__header {
-  // Box Model
-  padding: 1.8rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
+  // Plan header
+  &__header {
+    // Box Model
+    padding: 1.8rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
 
-.plan__recommended-tag {
-  // Layout
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
+  // Recommended tag
+  &__recommended-tag {
+    // Layout
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
 
-  // Box Model
-  padding: 7px 15px;
+    // Box Model
+    padding: 7px 15px;
 
-  // Typography
-  font-size: 0.9rem;
-  font-weight: vars.$font-weight-medium;
-  text-align: center;
-
-  // Visual
-  color: vars.$color-background-white;
-  background-color: vars.$color-primary;
-  border-radius: vars.$border-radius-small;
-  z-index: 3;
-}
-
-.plan__title {
-  // Typography
-  font-weight: vars.$font-weight-medium;
-  color: vars.$color-text-dark;
-}
-
-.plan__description {
-  // Box Model
-  margin: 0.8rem 0;
-
-  // Typography
-  font-size: 0.85rem;
-  font-weight: normal;
-  color: vars.$color-text;
-}
-
-.plan__price {
-  // Layout
-  position: relative;
-
-  // Typography
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  font-weight: vars.$font-weight-medium;
-
-  &-amount {
-    margin-right: vars.$spacing-small;
+    // Typography
+    font-size: 0.9rem;
     font-weight: vars.$font-weight-medium;
+    text-align: center;
+
+    // Visual
+    color: vars.$color-background-white;
+    background-color: vars.$color-primary;
+    border-radius: vars.$border-radius-small;
+    z-index: 3;
+  }
+
+  // Plan title
+  &__title {
+    // Typography
+    font-weight: vars.$font-weight-medium;
+    color: vars.$color-text-dark;
+  }
+
+  // Plan description
+  &__description {
+    // Box Model
+    margin: 0.8rem 0;
+
+    // Typography
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: vars.$color-text;
+  }
+
+  // Plan price
+  &__price {
+    // Layout
+    position: relative;
+
+    // Typography
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: vars.$font-weight-medium;
+
+    &-amount {
+      // Box Model
+      margin-right: vars.$spacing-small;
+
+      // Typography
+      font-weight: vars.$font-weight-medium;
+      color: vars.$color-primary;
+    }
+
+    &-period {
+      // Typography
+      font-size: 1rem;
+      color: vars.$color-text-gray;
+    }
+  }
+
+  // Plan footer
+  &__footer {
+    // Box Model
+    padding: 0.7rem 1.8rem 1rem;
+  }
+
+  // Plan features
+  &__features {
+    // Layout
+    display: flex;
+    flex-direction: column;
+
+    // Box Model
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  // Plan feature
+  &__feature {
+    // Layout
+    display: flex;
+    align-items: center;
+
+    // Box Model
+    gap: 8px;
+
+    // Typography
+    font-size: 0.94rem;
+    color: vars.$color-text-gray;
+  }
+
+  // Check icon
+  &__check {
+    // Box Model
+    width: 16px;
+    height: 16px;
+
+    // Visual
     color: vars.$color-primary;
   }
 
-  &-period {
-    font-size: 1rem;
-    color: vars.$color-text-gray;
+  // Plan button
+  &__button {
+    // Layout
+    display: flex;
+    justify-content: flex-start;
   }
-}
-
-.plan__footer {
-  // Box Model
-  padding: 0.7rem 1.8rem 1rem;
-}
-
-.plan__features {
-  // Layout
-  display: flex;
-  flex-direction: column;
-
-  // Box Model
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.plan__feature {
-  // Layout
-  display: flex;
-  align-items: center;
-
-  // Box Model
-  gap: 8px;
-
-  // Typography
-  font-size: 0.94rem;
-  color: vars.$color-text-gray;
-}
-
-.plan__check {
-  // Box Model
-  width: 16px;
-  height: 16px;
-
-  // Visual
-  color: vars.$color-primary;
-}
-
-.plan__button {
-  // Layout
-  display: flex;
-  justify-content: flex-start;
 }

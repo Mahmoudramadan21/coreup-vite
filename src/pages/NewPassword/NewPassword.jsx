@@ -5,6 +5,7 @@ import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import lockIcon from "../../assets/icons/lock.svg";
 
+// NewPassword page for setting a new password
 const NewPassword = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -42,12 +43,15 @@ const NewPassword = () => {
   return (
     <AuthLayout showSidebar={false}>
       <div className={styles.newPassword}>
-        <h1 className={styles.title}>Set a new password</h1>
-        <p className={styles.subtitle}>
+        {/* Page Title */}
+        <h1 className={styles.newPassword__title}>Set a new password</h1>
+        {/* Page Subtitle */}
+        <p className={styles.newPassword__subtitle}>
           Your previous password has been reset. Please set a new password for
           your account.
         </p>
-        <form onSubmit={handleSubmit} className={styles.form}>
+        {/* Password Form */}
+        <form onSubmit={handleSubmit} className={styles.newPassword__form}>
           <Input
             id="password"
             type="password"
@@ -57,9 +61,10 @@ const NewPassword = () => {
             onChange={handlePasswordChange}
             ariaLabel="New password"
           />
-          <div className={styles.strength}>
+          {/* Password Strength Bar */}
+          <div className={styles.newPassword__strength}>
             <div
-              className={styles.strengthBar}
+              className={styles.newPassword__strengthBar}
               style={{ width: `${passwordStrength}%` }}
             ></div>
           </div>
@@ -73,11 +78,11 @@ const NewPassword = () => {
             ariaLabel="Confirm new password"
           />
           {!passwordMatch && (
-            <p className={styles.error}>Passwords do not match</p>
+            <p className={styles.newPassword__error}>Passwords do not match</p>
           )}
           <Button
             type="submit"
-            className="btn btn-lg"
+            className="button button--lg"
             ariaLabel="Set password"
             disabled={
               !password ||

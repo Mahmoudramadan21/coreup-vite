@@ -1,80 +1,80 @@
 @use "../../styles/variables" as vars;
 
-// Card styles for content display
+// Card component styles
 .card {
   // Layout
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  flex: 1;
 
   // Box Model
-  flex: 1;
   gap: 1.4rem;
   padding: clamp(2rem, 4vw, 3rem);
   border-radius: 1rem;
 
-  // Media Queries
+  // Responsive adjustments
   @media (max-width: 768px) {
     align-items: center;
     gap: 12px;
     text-align: center;
   }
-}
 
-// Card title
-.card-title {
-  // Typography
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-  color: vars.$color-text;
-}
+  // Startup variant
+  &--startup {
+    // Visual
+    background: linear-gradient(
+      to right,
+      rgba(191, 219, 254, 0.3) 0%,
+      rgba(191, 219, 254, 0.3) 10%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+  }
 
-// Card subtitle
-.card-subtitle {
-  // Typography
-  font-size: 0.85rem;
-  font-weight: bold;
-  color: vars.$color-text;
-}
+  // Investor variant
+  &--investor {
+    // Visual
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(254, 243, 200, 0.3) 30%,
+      rgba(254, 243, 200, 0.3) 100%
+    );
+  }
 
-// Card description
-.card-description {
-  // Box Model
-  max-width: 410px;
+  // Card title
+  &__title {
+    // Typography
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: vars.$color-text;
+  }
 
-  // Typography
-  font-size: 0.94rem;
-  line-height: 1.4;
-  color: vars.$color-text-gray-muted;
-}
+  // Card subtitle
+  &__subtitle {
+    // Typography
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: vars.$color-text;
+  }
 
-// Card buttons container
-.card-buttons {
-  // Layout
-  display: flex;
-  align-items: center;
+  // Card description
+  &__description {
+    // Box Model
+    max-width: 410px;
 
-  // Box Model
-  gap: 6px;
-}
+    // Typography
+    font-size: 0.94rem;
+    line-height: 1.4;
+    color: vars.$color-text-gray-muted;
+  }
 
-// Startup variant
-.card--startup {
-  // Visual
-  background: linear-gradient(
-    to right,
-    rgba(191, 219, 254, 0.3) 0%,
-    rgba(191, 219, 254, 0.3) 10%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
-}
+  // Card buttons container
+  &__buttons {
+    // Layout
+    display: flex;
+    align-items: center;
 
-// Investor variant
-.card--investor {
-  // Visual
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(254, 243, 200, 0.3) 30%,
-    rgba(254, 243, 200, 0.3) 100%
-  );
+    // Box Model
+    gap: 6px;
+  }
 }

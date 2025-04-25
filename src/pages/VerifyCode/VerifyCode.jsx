@@ -5,6 +5,7 @@ import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
 
+// VerifyCode page for email verification
 const VerifyCode = () => {
   const [code, setCode] = useState("");
   const navigate = useNavigate();
@@ -17,11 +18,14 @@ const VerifyCode = () => {
   return (
     <AuthLayout showSidebar={false}>
       <div className={styles.verifyCode}>
-        <h1 className={styles.title}>Verify Code</h1>
-        <p className={styles.subtitle}>
+        {/* Page Title */}
+        <h1 className={styles.verifyCode__title}>Verify Code</h1>
+        {/* Page Subtitle */}
+        <p className={styles.verifyCode__subtitle}>
           An authentication code has been sent to your email.
         </p>
-        <div className={styles.form}>
+        {/* Verification Form */}
+        <div className={styles.verifyCode__form}>
           <Input
             type="text"
             placeholder="Enter Code"
@@ -35,7 +39,7 @@ const VerifyCode = () => {
           <Button
             onClick={handleClick}
             type="button"
-            className="btn btn-lg"
+            className="button button--lg"
             ariaLabel="Send code"
             disabled={!code}
           >

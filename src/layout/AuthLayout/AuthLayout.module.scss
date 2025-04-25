@@ -1,128 +1,141 @@
-.layout {
-  /* Layout */
+.authLayout {
+  // Layout
   display: flex;
   min-height: 100vh;
 
-  /* Box Model */
+  // Box Model
   width: 100%;
-}
 
-.header {
-  /* Layout */
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-
-  /* Box Model */
-  width: 100%;
-  padding: 20px 40px;
-  border-bottom: 1px solid #e0e0e0;
-
-  /* Visual */
-  background-color: #007bff;
-
-  /* Mobile Layout */
-  @media (max-width: 768px) {
-    padding: 16px;
-  }
-}
-
-.logo {
-  /* Visual */
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-.loginLink {
-  /* Box Model */
-  padding: 8px 16px;
-  border: 1px solid #fff;
-  border-radius: 8px;
-
-  /* Typography */
-  font-size: 14px;
-  line-height: 20px;
-  text-decoration: none;
-
-  /* Visual */
-  color: #fff;
-
-  /* Transitions */
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-}
-
-.main {
-  /* Layout */
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  /* Box Model */
-  padding: 160px 40px 80px;
-
-  /* Mobile Layout */
-  @media (max-width: 768px) {
-    padding: 80px 16px 16px;
-  }
-}
-
-.footer {
-  /* Layout */
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-
-  /* Box Model */
-  padding: 16px 40px;
-  border-top: 1px solid #e0e0e0;
-
-  /* Typography */
-  font-size: 12px;
-  line-height: 18px;
-  color: #999;
-
-  /* Mobile Layout */
-  @media (max-width: 768px) {
+  // Header
+  &__header {
+    // Layout
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+
+    // Box Model
+    width: 100%;
+    padding: 20px 40px;
+    border-bottom: 1px solid #e0e0e0;
+
+    // Visual
+    background-color: #007bff;
+
+    // Responsive adjustments
+    @media (max-width: 768px) {
+      padding: 16px;
+    }
+
+    &--login {
+      // Box Model
+      border-bottom: none;
+
+      // Visual
+      background-color: transparent;
+    }
   }
-}
 
-.helpLink {
-  /* Typography */
-  font-size: 12px;
-  line-height: 18px;
-  text-decoration: none;
-  color: #007bff;
+  // Logo
+  &__logo {
+    // Visual
+    img {
+      max-width: 100%;
+      height: auto;
+    }
 
-  /* Transitions */
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #0056b3;
+    &--login {
+      // Visual
+      visibility: hidden;
+    }
   }
-}
 
-.loginHeader {
-  border-bottom: none;
-  background-color: transparent;
-}
+  // Navigation link
+  &__link {
+    // Box Model
+    padding: 8px 16px;
+    border: 1px solid #fff;
+    border-radius: 8px;
 
-.loginLogo {
-  visibility: hidden;
-}
+    // Typography
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none;
 
-.loginLinkActive {
-  border: 1px solid rgba(24, 119, 242, 1);
-  color: rgba(24, 119, 242, 1);
+    // Visual
+    color: #fff;
+
+    // Transitions
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &--active {
+      // Box Model
+      border: 1px solid rgba(24, 119, 242, 1);
+
+      // Typography
+      color: rgba(24, 119, 242, 1);
+    }
+  }
+
+  // Main content
+  &__main {
+    // Layout
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // Box Model
+    padding: 160px 40px 80px;
+
+    // Responsive adjustments
+    @media (max-width: 768px) {
+      padding: 80px 16px 16px;
+    }
+  }
+
+  // Footer
+  &__footer {
+    // Layout
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+
+    // Box Model
+    padding: 16px 40px;
+    border-top: 1px solid #e0e0e0;
+
+    // Typography
+    font-size: 12px;
+    line-height: 18px;
+    color: #999;
+
+    // Responsive adjustments
+    @media (max-width: 768px) {
+      display: flex;
+    }
+  }
+
+  // Help link
+  &__helpLink {
+    // Typography
+    font-size: 12px;
+    line-height: 18px;
+    text-decoration: none;
+    color: #007bff;
+
+    // Transitions
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #0056b3;
+    }
+  }
 }

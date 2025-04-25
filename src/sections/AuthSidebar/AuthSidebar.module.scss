@@ -1,39 +1,42 @@
-.sidebar {
-  /* Layout */
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+// AuthSidebar Component Styles
+// Accessibility: Ensures the sidebar is hidden on smaller screens for better usability.
+// Performance: Image is set to loading="eager" to prioritize LCP.
+
+.authauthSidebar {
+  // Layout
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: fixed;
-  left: -2px;
 
-  /* Box Model */
-  width: 100%;
-  max-width: 400px;
-  // height: 100vh;
+  // max-width: 400px;
+  // min-height: 100vh;
+  // padding: vars.$spacing-large;
 
-  /* Visual */
-  // background: linear-gradient(180deg, #1a3c5e 0%, #2a6ea6 100%);
-
-  /* Desktop Layout */
-  @media (max-width: 768px) {
+  // Media Queries
+  @include mixins.respond-to("tablet") {
     display: none;
   }
 }
 
-.image {
-  /* Layout */
+.authSidebar__image {
+  // Layout
   display: flex;
   justify-content: center;
   align-items: center;
 
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
+  // height: 100vh;
+  position: fixed;
+  left: -2px;
 
-@media (max-width: 992px) {
-  .sidebar {
-    display: none;
+  // Box Model
+  flex: 1;
+
+  img {
+    // Box Model
+    width: auto;
+    height: 100vh;
   }
 }

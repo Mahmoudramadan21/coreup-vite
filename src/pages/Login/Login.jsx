@@ -10,6 +10,7 @@ import lockIcon from "../../assets/icons/lock.svg";
 import facebookIcon from "../../assets/icons/facebook.svg";
 import googleIcon from "../../assets/icons/google.svg";
 
+// Login page for user authentication
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,9 +24,12 @@ const Login = () => {
   return (
     <AuthLayout showSidebar={true}>
       <div className={styles.login}>
-        <h1 className={styles.title}>Welcome to Invest World</h1>
-        <p className={styles.subtitle}>Login to continue</p>
-        <form onSubmit={handleSubmit} className={styles.form}>
+        {/* Page Title */}
+        <h1 className={styles.login__title}>Welcome to Invest World</h1>
+        {/* Page Subtitle */}
+        <p className={styles.login__subtitle}>Login to continue</p>
+        {/* Login Form */}
+        <form onSubmit={handleSubmit} className={styles.login__form}>
           <Input
             id="email"
             type="email"
@@ -44,8 +48,9 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             ariaLabel="Password"
           />
-          <div className={styles.options}>
-            <label className={styles.checkbox}>
+          {/* Form Options */}
+          <div className={styles.login__options}>
+            <label className={styles.login__checkbox}>
               <input
                 type="checkbox"
                 checked={rememberMe}
@@ -54,19 +59,21 @@ const Login = () => {
               />
               Remember me
             </label>
-            <Link to="/forgot-password" className={styles.forgotLink}>
+            <Link to="/forgot-password" className={styles.login__forgotLink}>
               Forgot Password?
             </Link>
           </div>
-          <Button type="submit" className="btn btn-lg" ariaLabel="Login">
+          <Button type="submit" className="button button--lg" ariaLabel="Login">
             Login
           </Button>
         </form>
-        <div className={styles.divider}>OR</div>
-        <div className={styles.social}>
+        {/* Divider */}
+        <div className={styles.login__divider}>OR</div>
+        {/* Social Login Options */}
+        <div className={styles.login__social}>
           <SocialButton
             icon={facebookIcon}
-            className="socialButtonFacebook"
+            className="socialButton--facebook"
             ariaLabel="Continue with Facebook"
           >
             Continue with Facebook
@@ -75,9 +82,10 @@ const Login = () => {
             Continue with Google
           </SocialButton>
         </div>
-        <p className={styles.register}>
+        {/* Register Link */}
+        <p className={styles.login__register}>
           Don’t have an account?{" "}
-          <Link to="/signup" className={styles.registerLink}>
+          <Link to="/signup" className={styles.login__registerLink}>
             Register
           </Link>
         </p>

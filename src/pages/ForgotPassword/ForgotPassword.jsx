@@ -8,29 +8,28 @@ import emailIcon from "../../assets/icons/email.svg";
 import facebookIcon from "../../assets/icons/facebook.svg";
 import googleIcon from "../../assets/icons/google.svg";
 
-/*
- * ForgotPassword Page (Updated to match NewPassword)
- * Performance Note: Wrapped with React.memo to prevent unnecessary re-renders
- * Security Note: Avoid inline scripts to mitigate XSS attacks
- * Accessibility Note: Added semantic HTML and aria-labels
- */
+// ForgotPassword page for password recovery
+// Handles email input and social login options
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle new password logic (e.g., API call)
+    // Handle password recovery logic (e.g., API call)
   };
 
   return (
     <AuthLayout showSidebar={false}>
       <div className={styles.forgotPassword}>
-        <h1 className={styles.title}>Forgot Password</h1>
-        <p className={styles.subtitle}>
+        {/* Page Title */}
+        <h1 className={styles.forgotPassword__title}>Forgot Password</h1>
+        {/* Page Subtitle */}
+        <p className={styles.forgotPassword__subtitle}>
           Don’t worry, happens to all of us. Enter your email below to recover
           your password
         </p>
-        <form onSubmit={handleSubmit} className={styles.form}>
+        {/* Recovery Form */}
+        <form onSubmit={handleSubmit} className={styles.forgotPassword__form}>
           <Input
             type="email"
             placeholder="Email Address"
@@ -41,17 +40,19 @@ const ForgotPassword = () => {
           />
           <Button
             type="submit"
-            className="btn btn-lg"
+            className="button button--lg"
             ariaLabel="Set email address"
             disabled={!email}
           >
             Send Code
           </Button>
         </form>
-        <div className={styles.divider}>OR</div>
-        <div className={styles.social}>
+        {/* Divider */}
+        <div className={styles.forgotPassword__divider}>OR</div>
+        {/* Social Login Options */}
+        <div className={styles.forgotPassword__social}>
           <SocialButton
-            className="socialButtonFacebook"
+            className="socialButton--facebook"
             icon={facebookIcon}
             ariaLabel="Continue with Facebook"
           >

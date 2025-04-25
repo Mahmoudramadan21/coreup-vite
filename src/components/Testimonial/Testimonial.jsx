@@ -1,21 +1,15 @@
-/**
- * Testimonial component for displaying client testimonials with ratings.
- * @component
- * @param {Object} props - Component props
- * @param {string} props.avatar - User avatar image URL
- * @param {string} props.name - User name
- * @param {string} props.role - User role or industry
- * @param {string} props.text - Testimonial text
- * @param {boolean} [props.isFeatured=false] - Highlights featured testimonial
- * @returns {JSX.Element} Testimonial element
- * @example
- * <Testimonial avatar={avatar} name="John Doe" role="CEO" text="Great platform!" />
- */
 import React from "react";
 import styles from "./Testimonial.module.scss";
 import starIcon from "../../assets/icons/star.svg";
 import quoteIcon from "../../assets/icons/quote.svg";
 
+// Testimonial component for client testimonials
+// Props:
+// - avatar: User avatar image
+// - name: User name
+// - role: User role or industry
+// - text: Testimonial text
+// - isFeatured: Highlights featured testimonial
 const Star = () => (
   <img
     src={starIcon}
@@ -27,22 +21,25 @@ const Star = () => (
   />
 );
 
-const Testimonial = ({ avatar, name, role, text, isFeatured = false }) => {
+const Testimonial = ({ avatar, name, role, text, isFeatured }) => {
   return (
     <article
       className={`${styles.testimonial} ${
         isFeatured ? styles["testimonial--featured"] : ""
       }`}
       aria-label={`Testimonial by ${name}`}
-      role="article"
     >
+      {/* Stars */}
       <div className={styles["testimonial__stars"]}>
         {[...Array(5)].map((_, index) => (
           <Star key={index} />
         ))}
       </div>
+      {/* Testimonial Text */}
       <p className={styles["testimonial__text"]}>{text}</p>
-      <footer className={styles["testimonial__footer"]}>
+      {/* Testimonial Footer */}
+      <div className={styles["testimonial__footer"]}>
+        {/* User Info */}
         <div className={styles["testimonial__user"]}>
           <img
             src={avatar}
@@ -57,16 +54,17 @@ const Testimonial = ({ avatar, name, role, text, isFeatured = false }) => {
             <p className={styles["testimonial__role"]}>{role}</p>
           </div>
         </div>
+        {/* Quote Icon */}
         <img
           src={quoteIcon}
-          alt=""
+          alt="Quote icon"
           className={styles["testimonial__quote"]}
           loading="lazy"
           width="30"
           height="30"
           aria-hidden="true"
         />
-      </footer>
+      </div>
     </article>
   );
 };

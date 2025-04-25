@@ -1,8 +1,8 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// Default button styles
-.btn {
+// Button component styles
+.button {
   // Layout
   display: flex;
   justify-content: center;
@@ -33,12 +33,12 @@
   }
 
   // Medium size modifier
-  &-md {
+  &--md {
     padding: 0 50px;
   }
 
   // Large size modifier
-  &-lg {
+  &--lg {
     width: 100%;
     padding: 0;
   }

@@ -1,119 +1,173 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
+// Login page styles
 .login {
+  // Layout
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  // Box Model
   width: 100%;
   max-width: 400px;
 
+  // Responsive adjustments
   @media (min-width: 992px) {
     margin-left: 28vw;
   }
-}
 
-.title {
-  font-size: vars.$font-size-title;
-  font-weight: vars.$font-weight-bold;
-  line-height: 1.3;
-  text-align: center;
-  color: vars.$color-text-dark;
-  margin-bottom: vars.$spacing-medium;
+  // Title
+  &__title {
+    // Box Model
+    margin-bottom: vars.$spacing-medium;
 
-  @include mixins.respond-to("mobile") {
-    font-size: clamp(1.5rem, 5vw, vars.$font-size-title);
+    // Typography
+    font-size: vars.$font-size-title;
+    font-weight: vars.$font-weight-bold;
+    line-height: 1.3;
+    text-align: center;
+    color: vars.$color-text-dark;
+
+    // Responsive adjustments
+    @include mixins.respond-to("mobile") {
+      font-size: clamp(1.5rem, 5vw, vars.$font-size-title);
+    }
   }
-}
 
-.subtitle {
-  margin-bottom: vars.$spacing-large;
-  font-size: vars.$font-size-body;
-  line-height: 1.5;
-  text-align: center;
-  color: vars.$color-text-gray;
+  // Subtitle
+  &__subtitle {
+    // Box Model
+    margin-bottom: vars.$spacing-large;
 
-  @include mixins.respond-to("mobile") {
-    font-size: clamp(0.8rem, 2vw, vars.$font-size-body);
+    // Typography
+    font-size: vars.$font-size-body;
+    line-height: 1.5;
+    text-align: center;
+    color: vars.$color-text-gray;
+
+    // Responsive adjustments
+    @include mixins.respond-to("mobile") {
+      font-size: clamp(0.8rem, 2vw, vars.$font-size-body);
+    }
   }
-}
 
-.label {
-  font-size: vars.$font-size-body;
-  color: vars.$color-text-dark;
-  margin-bottom: vars.$spacing-small;
-}
+  // Label
+  &__label {
+    // Box Model
+    margin-bottom: vars.$spacing-small;
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: vars.$spacing-medium;
-  width: 100%;
-}
-
-.options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: vars.$spacing-medium;
-}
-
-.checkbox {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: vars.$font-size-body;
-  line-height: 1.5;
-  color: vars.$color-text-gray;
-
-  input {
-    accent-color: vars.$color-primary;
-    width: 16px;
-    height: 16px;
+    // Typography
+    font-size: vars.$font-size-body;
+    color: vars.$color-text-dark;
   }
-}
 
-.forgotLink {
-  font-size: vars.$font-size-body;
-  line-height: 1.5;
-  text-decoration: none;
-  color: vars.$color-primary;
-  transition: color 0.3s ease;
+  // Form
+  &__form {
+    // Layout
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-medium;
 
-  &:hover {
-    color: vars.$color-primary-hover;
+    // Box Model
+    width: 100%;
   }
-}
 
-.divider {
-  margin: vars.$spacing-large 0;
-  font-size: vars.$font-size-body;
-  line-height: 1.5;
-  text-align: center;
-  color: vars.$color-text-gray;
-}
+  // Options
+  &__options {
+    // Layout
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.social {
-  display: flex;
-  flex-direction: column;
-  gap: vars.$spacing-medium;
-  width: 100%;
-}
+    // Box Model
+    margin-bottom: vars.$spacing-medium;
+  }
 
-.register {
-  margin-top: vars.$spacing-large;
-  font-size: vars.$font-size-body;
-  line-height: 1.5;
-  text-align: center;
-  color: vars.$color-text-gray;
-}
+  // Checkbox
+  &__checkbox {
+    // Layout
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-.registerLink {
-  text-decoration: none;
-  color: vars.$color-primary;
-  transition: color 0.3s ease;
+    // Typography
+    font-size: vars.$font-size-body;
+    line-height: 1.5;
+    color: vars.$color-text-gray;
 
-  &:hover {
-    color: vars.$color-primary-hover;
+    input {
+      // Visual
+      accent-color: vars.$color-primary;
+
+      // Box Model
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  // Forgot password link
+  &__forgotLink {
+    // Typography
+    font-size: vars.$font-size-body;
+    line-height: 1.5;
+    text-decoration: none;
+    color: vars.$color-primary;
+
+    // Transitions
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: vars.$color-primary-hover;
+    }
+  }
+
+  // Divider
+  &__divider {
+    // Box Model
+    margin: vars.$spacing-large 0;
+
+    // Typography
+    font-size: vars.$font-size-body;
+    line-height: 1.5;
+    text-align: center;
+    color: vars.$color-text-gray;
+  }
+
+  // Social login options
+  &__social {
+    // Layout
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-medium;
+
+    // Box Model
+    width: 100%;
+  }
+
+  // Register text
+  &__register {
+    // Box Model
+    margin-top: vars.$spacing-large;
+
+    // Typography
+    font-size: vars.$font-size-body;
+    line-height: 1.5;
+    text-align: center;
+    color: vars.$color-text-gray;
+  }
+
+  // Register link
+  &__registerLink {
+    // Typography
+    text-decoration: none;
+    color: vars.$color-primary;
+
+    // Transitions
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: vars.$color-primary-hover;
+    }
   }
 }

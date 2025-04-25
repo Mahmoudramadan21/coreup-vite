@@ -1,22 +1,16 @@
-/**
- * Plan component to display pricing plans with features and action button.
- * @component
- * @param {Object} props - Component props
- * @param {string} props.title - Plan title (e.g., "Basic")
- * @param {string} props.description - Plan description
- * @param {string} props.price - Plan price (e.g., "$19")
- * @param {string} props.period - Billing period (e.g., "/Monthly")
- * @param {string[]} props.features - Array of feature descriptions
- * @param {boolean} [props.isRecommended=false] - Highlights recommended plan
- * @param {React.ReactNode} [props.button] - Button component
- * @returns {JSX.Element} Plan element
- * @example
- * <Plan title="Basic" price="$19" period="/Monthly" features={["Feature 1", "Feature 2"]} />
- */
 import React from "react";
 import styles from "./Plan.module.scss";
 import checkIcon from "../../assets/icons/check.svg";
 
+// Plan component for displaying pricing plans
+// Props:
+// - title: Plan title (e.g., Basic)
+// - description: Plan description
+// - price: Plan price (e.g., $19)
+// - period: Billing period (e.g., /Monthly)
+// - features: Array of plan features
+// - isRecommended: Highlights recommended plan
+// - button: Button component for the plan
 const CheckIcon = () => (
   <img
     src={checkIcon}
@@ -34,35 +28,37 @@ const Plan = ({
   price,
   period,
   features,
-  isRecommended = false,
+  isRecommended,
   button,
 }) => {
   return (
     <article
       className={`
-        ${styles.plan}
         ${title === "Basic" ? styles["basic-plan"] : ""}
         ${title === "Standard" ? styles["standard-plan"] : ""}
         ${title === "Premium" ? styles["premium-plan"] : ""}
-        ${isRecommended ? styles["plan--recommended"] : ""}`}
+        ${styles.plan} ${isRecommended ? styles["plan--recommended"] : ""}`}
       aria-label={`Pricing plan: ${title}`}
-      role="region"
     >
       {/* Recommended Tag */}
       {isRecommended && (
-        <span className={styles["plan__recommended-tag"]}>Recommended</span>
+        <span className={styles["plan__recommended-tag"]}>Recommendation</span>
       )}
       {/* Plan Header */}
-      <header className={styles["plan__header"]}>
+      <div className={styles["plan__header"]}>
+        {/* Plan Title */}
         <h2 className={styles["plan__title"]}>{title}</h2>
+        {/* Plan Description */}
         <p className={styles["plan__description"]}>{description}</p>
+        {/* Plan Price */}
         <div className={styles["plan__price"]}>
           <span className={styles["plan__price-amount"]}>{price}</span>
           <span className={styles["plan__price-period"]}>{period}</span>
         </div>
-      </header>
+      </div>
       {/* Plan Footer */}
-      <footer className={styles["plan__footer"]}>
+      <div className={styles["plan__footer"]}>
+        {/* Plan Features */}
         <ul className={styles["plan__features"]} role="list">
           {features.map((feature, index) => (
             <li key={index} className={styles["plan__feature"]} role="listitem">
@@ -71,8 +67,9 @@ const Plan = ({
             </li>
           ))}
         </ul>
+        {/* Plan Button */}
         {button && <div className={styles["plan__button"]}>{button}</div>}
-      </footer>
+      </div>
     </article>
   );
 };

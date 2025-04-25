@@ -1,15 +1,17 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
+// PlanButton component styles
 .planButton {
   // Layout
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
   // Box Model
   box-sizing: content-box;
-  padding: 0 30px;
+  padding-left: 30px;
+  padding-right: 30px;
   width: 100%;
   height: 48px;
   border: none;
@@ -26,6 +28,7 @@
   transition: background-color 0.3s ease;
 
   &--default {
+    // Visual
     background-color: #e6f0fa;
     color: vars.$color-primary;
 
@@ -39,6 +42,7 @@
   }
 
   &--primary {
+    // Visual
     background-color: vars.$color-primary;
     color: vars.$color-background-white;
 
@@ -51,6 +55,7 @@
     }
   }
 
+  // Arrow icon
   &__arrow {
     // Box Model
     margin-left: 10px;
