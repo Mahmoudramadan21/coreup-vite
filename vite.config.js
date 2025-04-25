@@ -31,14 +31,15 @@ export default defineConfig({
     }),
   ],
   build: {
-    polyfillModulePreload: false, // Disable polyfills for modern browsers
+    // Remove deprecated polyfillModulePreload option
     target: "es2020", // Target modern browsers
     minify: "terser", // Use Terser for JS minification
     rollupOptions: {
       output: {
         manualChunks: {
           react: ["react", "react-dom"],
-          vendor: ["lodash", "moment"], // Split heavy dependencies
+          // Remove vendor chunk if unused
+          // vendor: ["lodash", "moment"],
           // Add chunks for large components
           hero: ["./src/sections/Hero/Hero"],
           success: ["./src/sections/Success/Sucess"],
